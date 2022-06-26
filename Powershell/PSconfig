@@ -1,0 +1,26 @@
+# Unix like Tab completion
+Set-PSReadlineKeyHandler -Key Tab -Function Complete
+
+# git status shortcut
+function gitstatus{
+      git status
+      }
+Set-Alias gs gitstatus
+
+# git add all shortcut
+function gitadd{
+      git add .
+      }
+Set-Alias ga gitadd
+
+# git commit shortcut
+function gitcommit(){
+      git commit -m "$args"
+      }
+Set-Alias cm gitcommit
+
+# jupyter lab shortcut
+function jupyter{
+      start jupyter lab
+      }
+Set-Alias jlab jupyter
