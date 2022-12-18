@@ -1,5 +1,6 @@
 # Unix like Tab completion
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
+Import-Module PSColor
 
 # git status shortcut
 function gitstatus{
@@ -24,3 +25,15 @@ function jupyter{
       start jupyter lab
       }
 Set-Alias jlab jupyter
+
+# activate venv
+function venvactive{
+      & ".\$($args[0])\Scripts\activate.ps1"
+      }
+Set-Alias activate venvactive
+
+# grep like function
+function greppi{
+      $input | findstr $args
+      }
+Set-Alias grep greppi
