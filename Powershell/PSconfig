@@ -47,12 +47,13 @@ function showenv(){
     }
 Set-Alias envs showenv
 
-function prompt {
-    $loc = $executionContext.SessionState.Path.CurrentLocation;
-    $out = "$loc$('>' * ($nestedPromptLevel + 1)) ";
-    if ($loc.Provider.Name -eq "FileSystem") {
-        $out += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
-    }
-    return $out
-}
+# option to start new terminal window at same path
+#function prompt {
+#    $loc = $executionContext.SessionState.Path.CurrentLocation;
+#    $out = "$loc$('>' * ($nestedPromptLevel + 1)) ";
+#    if ($loc.Provider.Name -eq "FileSystem") {
+#        $out += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
+#    }
+#    return $out
+#}
 
