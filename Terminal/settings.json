@@ -8,8 +8,13 @@
             "keys": "ctrl+shift+w"
         },
         {
-            "command": "unbound",
-            "keys": "ctrl+shift+t"
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "ctrl+d"
         },
         {
             "command": "unbound",
@@ -17,7 +22,35 @@
         },
         {
             "command": "unbound",
-            "keys": "ctrl+tab"
+            "keys": "alt+shift+minus"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+shift+plus"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+shift+d"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+left"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+up"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+right"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+down"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+t"
         },
         {
             "command": 
@@ -33,6 +66,30 @@
         {
             "command": "paste",
             "keys": "ctrl+v"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "first"
+            },
+            "keys": "ctrl+tab"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "alt+j"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "keys": "ctrl+shift+right"
         },
         {
             "command": 
@@ -53,18 +110,40 @@
             "command": 
             {
                 "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
+                "split": "down"
             },
-            "keys": "alt+shift+d"
+            "keys": "ctrl+shift+down"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "alt+h"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "alt+k"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "alt+l"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{02513274-0561-4a48-8c56-0e697bbd7057}",
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "experimental.rendering.forceFullRepaint": true,
     "experimental.rendering.software": true,
-    "initialRows": 30,
     "launchMode": "maximized",
     "profiles": 
     {
@@ -75,24 +154,20 @@
             "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "size": 10
+                "size": 10.0
             },
-            "scrollbarState": "hidden"
+            "scrollbarState": "hidden",
+            "useAtlasEngine": true
         },
         "list": 
         [
             {
                 "colorScheme": "One Half Dark",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "font": 
-                {
-                    "face": "Cascadia Mono"
-                },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell",
-                "opacity": 75,
-                "useAcrylic": true
+                "startingDirectory": "C:\\Users\\gnczd"
             },
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
@@ -107,41 +182,25 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": true,
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
                 "hidden": false,
-                "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
-                "startingDirectory": "C:\\Users\\grams\\Desktop"
+                "name": "Git Bash",
+                "source": "Git"
             },
             {
-                "bellStyle": "window",
-                "colorScheme": "One Half Dark",
-                "commandline": "%SystemRoot%\\System32\\bash.exe",
-                "guid": "{02513274-0561-4a48-8c56-0e697bbd7057}",
-                "hidden": false,
-                "icon": "C:\\Users\\grams\\Downloads\\s-l500.jpg",
-                "name": "Bash",
-                "startingDirectory": "C:\\Users\\grams\\"
-            },
-            {
-                "colorScheme": "One Half Dark",
-                "commandline": "\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\" -noLogo",
+                "colorScheme": "Kanagawa",
+                "commandline": "\"C:\\Users\\gnczd\\scoop\\shims\\pwsh.exe\" -nologo",
+                "cursorShape": "bar",
                 "font": 
                 {
-                    "size": 12
+                    "face": "Hack NF"
                 },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
-                "opacity": 65,
-                "source": "Windows.Terminal.PowershellCore",
-                "useAcrylic": true
+                "opacity": 90,
+                "padding": "8",
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
@@ -194,10 +253,33 @@
             "yellow": "#C19C00"
         },
         {
+            "background": "#1F1F28",
+            "black": "#090618",
+            "blue": "#7E9CD8",
+            "brightBlack": "#727169",
+            "brightBlue": "#7FB4CA",
+            "brightCyan": "#7AA89F",
+            "brightGreen": "#98BB6C",
+            "brightPurple": "#938AA9",
+            "brightRed": "#E82424",
+            "brightWhite": "#DCD7BA",
+            "brightYellow": "#E6C384",
+            "cursorColor": "#C8C093",
+            "cyan": "#6A9589",
+            "foreground": "#DCD7BA",
+            "green": "#76946A",
+            "name": "Kanagawa",
+            "purple": "#957FB8",
+            "red": "#C34043",
+            "selectionBackground": "#2D4F67",
+            "white": "#C8C093",
+            "yellow": "#C0A36E"
+        },
+        {
             "background": "#222833",
-            "black": "#282C34",
+            "black": "#4C5361",
             "blue": "#61AFEF",
-            "brightBlack": "#5A6374",
+            "brightBlack": "#787577",
             "brightBlue": "#61AFEF",
             "brightCyan": "#56B6C2",
             "brightGreen": "#98C379",
@@ -208,11 +290,11 @@
             "cursorColor": "#FFFFFF",
             "cyan": "#56B6C2",
             "foreground": "#BDCEE4",
-            "green": "#2B5438",
+            "green": "#5FBA7C",
             "name": "One Half Dark",
             "purple": "#C678DD",
             "red": "#E06C75",
-            "selectionBackground": "#FFFFFF",
+            "selectionBackground": "#B5B5B5",
             "white": "#DCDFE4",
             "yellow": "#E5C07B"
         },
@@ -379,7 +461,7 @@
         }
     ],
     "startOnUserLogin": true,
-    "tabWidthMode": "equal",
     "theme": "dark",
+    "themes": [],
     "useAcrylicInTabRow": true
 }
