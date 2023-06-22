@@ -4,14 +4,16 @@
     {
       "alignment": "left",
       "segments": [
+        // Proxy
         {
           "background": "#10384F",
           "foreground": "#0091DF",
           "leading_diamond": "\u256d\u2500\ue0b6",
           "style": "diamond",
-          "template": " {{ .Name }} ",
+          "template": " {{if .Env.HTTP_PROXY }} {{ .Env.HTTP_PROXY }} {{else}} {{.Name}} {{end}} ",
           "type": "shell"
         },
+        // Path
         {
           "background": "#004422",
           "foreground": "#66B512",
@@ -34,6 +36,7 @@
           "template": " {{ .Path }} ",
           "type": "path"
         },
+        // Git
         {
           "background": "#443247",
           "background_templates": [
@@ -59,6 +62,7 @@
     {
       "alignment": "right",
       "segments": [
+        // Python Environment
         {
           "background": "#443247",
           "foreground": "#D30F4B",
@@ -70,10 +74,21 @@
             "home_enabled": true
           },
           "style": "powerline",
-          "template": "\uE235{{ if .Venv }} {{ .Venv }} {{ end }}",
+          "template": "{{ if .Venv }} \uE235 {{ .Venv }} {{ end }}",
           "powerline_symbol": "\ue0b2",
           "type": "python"
         },
+        // AWS Profile
+        {
+          "background": "#10384F",
+          "foreground": "#FF9900",
+          "invert_powerline": true,
+          "style": "diamond",
+          "template": " {{if .Env.AWS_PROFILE }}\uf52c {{ .Env.AWS_PROFILE }} {{ end }} ",
+          "powerline_symbol": "\ue0b2",
+          "type": "aws"
+        },
+        // Python Version
         {
           "background": "#004422",
           "foreground": "#66B512",
@@ -85,10 +100,11 @@
             "home_enabled": true
           },
           "style": "powerline",
-          "template": "{{ .Full }} ",
+          "template": "\uE235 {{ .Full }} ",
           "powerline_symbol": "\ue0b2",
           "type": "python"
         },
+        // Time
         {
           "background": "#10384F",
           "foreground": "#0091DF",

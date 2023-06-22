@@ -25,7 +25,28 @@ $env:VIRTUAL_ENV_DISABLE_PROMPT = 1
 
 
 ####### Functions
+# close current Session
 function ex{exit}
+
+# set proxy
+function setproxy{
+      $env:HTTP_PROXY = '10.185.190.100:8080'
+      $env:HTTPS_PROXY = '10.185.190.100:8080'
+      echo 'Set Proxy to 10.185.190.100:8080'
+      }
+
+# set proxy
+function unsetproxy{
+      $env:HTTP_PROXY = ''
+      $env:HTTPS_PROXY = ''
+      echo 'Unset Proxy'
+      }
+
+# set aws profile
+function setaws{
+      $env:AWS_PROFILE = "$args"
+      echo "Set AWS_PROFILE to $env:AWS_PROFILE"
+      }
 
 ###### GIT Shortcuts
 # git status shortcut
@@ -68,7 +89,12 @@ function todesktop{
 # open TODO and overview
 function open2vims() {
     todesktop
-    vim -O "me@bayer.md" "TODO.md"
+    vim -O "todolist/ready.md" "todolist/doing.md" "todolist/done.md" 
+}
+
+function openoverview() {
+    todesktop
+    vim "me@bayer.md" 
 }
 
 # nvim mappings
@@ -86,24 +112,43 @@ function nvimsets() {
 function nvimplug() {
     vim "C:\Users\$env:UserName\Appdata\local\nvim\lua\slydragonn\plugins.lua"
 }
+
+# aws profiles
+function awsprofiles() {
+    vim "C:\Users\$env:UserName\.aws\credentials"
+}
 ##### Alias
 
+# vim proxys
 Set-Alias vim nvim
 Set-Alias vimmaps nvimmaps
 Set-Alias vimsets nvimsets
 Set-Alias vimplugs nvimplug
 
+# utils
 Set-Alias grep findstr
+Set-Alias tf terraform
 Set-Alias ll ls
 Set-Alias ddd todesktop
+Set-Alias ":q" ex
+Set-Alias todo open2vims
+Set-Alias list openoverview
 
+# python env stuff
 Set-Alias act actenv
 Set-Alias envs showenv
 Set-Alias pl pipli
 
+# set proxy
+Set-Alias prox setproxy
+Set-Alias noprox unsetproxy
+
+# set aws profile
+Set-Alias use setaws  
+Set-Alias prof awsprofiles  
+
+# git stuff
 Set-Alias gs gitstatus
 Set-Alias ga gitadd
 Set-Alias cm gitcommit
 
-Set-Alias ":q" ex
-Set-Alias todo open2vims
