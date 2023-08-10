@@ -79,29 +79,29 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 
 	-- LSP diagnostics, code actions, and more via Lua.
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("slydragonn.configs.null-ls")
-		end,
-		requires = { "nvim-lua/plenary.nvim" },
-	})
+--	use({
+--		"jose-elias-alvarez/null-ls.nvim",
+--		config = function()
+--			require("slydragonn.configs.null-ls")
+--		end,
+--		requires = { "nvim-lua/plenary.nvim" },
+--	})
 
 	-- Mason: Portable package manager
-	use({
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
-	})
-
-	use({
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("slydragonn.configs.mason-lsp")
-		end,
-		after = "mason.nvim",
-	})
+--	use({
+--		"williamboman/mason.nvim",
+--		config = function()
+--			require("mason").setup()
+--		end,
+--	})
+--
+--	use({
+--		"williamboman/mason-lspconfig.nvim",
+--		config = function()
+--			require("slydragonn.configs.mason-lsp")
+--		end,
+--		after = "mason.nvim",
+--	})
 
 	-- File manager
 	use({
