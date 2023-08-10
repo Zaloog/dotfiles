@@ -24,7 +24,7 @@ map("n", "<leader>w", "<CMD>update<CR>")
 map("n", "<leader>q", "<CMD>q<CR>")
 
 -- Exit insert mode
-map("i", "jk", "<ESC>")
+map("i", "<C-c>", "<ESC>")
 
 -- Windows
 map("n", "<leader>n", "<CMD>vsplit<CR>")
@@ -41,6 +41,8 @@ map("n", "<S-TAB>", "<CMD>bprevious<CR>")
 -- Terminal
 map("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>")
 map("n", "<leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>")
+map('n', '<C-e><C-e>','<CMD>TermExec cmd="pyexe %"<CR>')
+map("t", "<C-e>", "<C-\\><C-n>")
 
 -- Markdown Preview
 map("n", "<leader>m", "<CMD>MarkdownPreview<CR>")
@@ -49,8 +51,8 @@ map("n", "<leader>mn", "<CMD>MarkdownPreviewStop<CR>")
 -- Window Navigation
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
---map("n", "<C-k>", "<C-w>k")
---map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-j>", "<C-w>j")
 
 -- Resize Windows
 map("n", "<C-Left>", "<C-w><")

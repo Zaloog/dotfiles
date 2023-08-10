@@ -9,10 +9,10 @@ masonlsp.setup({
 	ensure_installed = {
 --		"cssls",
 --		"eslint",
---		"html",
---		"jsonls",
+--    "html",
+		"jsonls",
 --		"tsserver",
---		"pyright",
+		"pyright",
 --		"tailwindcss",
 	},
 })
