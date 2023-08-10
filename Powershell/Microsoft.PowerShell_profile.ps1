@@ -28,6 +28,10 @@ $env:PY_PYTHON = "3.11"
 
 
 ####### Functions
+# close current Session
+function ex{exit}
+
+# execute Python
 function exepy(){
   & py "$args"
   }
