@@ -5,7 +5,6 @@ local o = vim.o
 
 global.mapleader = " "
 global.maplocalleader = " "
-global.python3_host_prog = "C:/Users/GNCZD/Envs/neovim/Scripts/python.exe"
 
 -- Editor options
 
