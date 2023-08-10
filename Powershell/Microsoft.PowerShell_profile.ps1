@@ -10,13 +10,16 @@ Set-PSReadlineOption -EditMode Emacs
 Set-PSReadlineOption -PredictionViewStyle InlineView
 Set-PSReadlineOption -Color @{InlinePrediction="`e[48;5;238m"}
 Set-PSReadlineKeyHandler -Chord Ctrl+j -Function AcceptSuggestion
+Set-PSReadlineOption -BellStyle None
 
 # Setting for fuzzy finder
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f'
 
 # Nice Command prompt
-oh-my-posh init pwsh --config $env:POSH_THEMES_PATH/bayer.omp.json | Invoke-Expression
+oh-my-posh --init --shell pwsh --config $env:POSH_THEMES_PATH/bayer.omp.json | Invoke-Expression
+
 $env:VIRTUAL_ENV_DISABLE_PROMPT = 1
+$env:PY_PYTHON = "3.11"
 
 # Other Themes
 # takuya
@@ -25,7 +28,24 @@ $env:VIRTUAL_ENV_DISABLE_PROMPT = 1
 
 
 ####### Functions
+function exepy(){
+  & py "$args"
+  }
+
+# close current Session
 function ex{exit}
+
+# set aws profile
+function setaws{
+      $env:AWS_PROFILE = "$args"
+      echo "Set AWS_PROFILE to $env:AWS_PROFILE"
+      }
+#
+# set python version
+function setpython{
+      $env:PY_PYTHON = "$args"
+      echo "Set Python Version to $env:PY_PYTHON"
+      }
 
 ###### GIT Shortcuts
 # git status shortcut
@@ -62,14 +82,8 @@ function pipli(){
 ##### Navigation
 # desktop shortcut
 function todesktop{
-      cd "C:\Users\$env:UserName\OneDrive - Bayer\Desktop\"
+      cd "C:\Users\$env:UserName\Desktop\"
       }
-
-# open TODO and overview
-function open2vims() {
-    todesktop
-    vim -O "me@bayer.md" "TODO.md"
-}
 
 # nvim mappings
 function nvimmaps() {
@@ -86,24 +100,49 @@ function nvimsets() {
 function nvimplug() {
     vim "C:\Users\$env:UserName\Appdata\local\nvim\lua\slydragonn\plugins.lua"
 }
+
+# aws profiles
+function awsprofiles() {
+    vim "C:\Users\$env:UserName\.aws\credentials"
+}
 ##### Alias
 
+# vim proxys
 Set-Alias vim nvim
 Set-Alias vimmaps nvimmaps
 Set-Alias vimsets nvimsets
 Set-Alias vimplugs nvimplug
 
+# utils
 Set-Alias grep findstr
+Set-Alias tf terraform
 Set-Alias ll ls
 Set-Alias ddd todesktop
+Set-Alias ":q" ex
+Set-Alias todo open2vims
+Set-Alias list openoverview
 
+# scripts
+Set-Alias lambdalocal lambda_local
+
+# python env stuff
 Set-Alias act actenv
 Set-Alias envs showenv
 Set-Alias pl pipli
+Set-Alias pyv setpython
 
+# set proxy
+Set-Alias prox setproxy
+Set-Alias noprox unsetproxy
+
+# set aws profile
+Set-Alias use setaws  
+Set-Alias prof awsprofiles  
+
+# git stuff
 Set-Alias gs gitstatus
 Set-Alias ga gitadd
 Set-Alias cm gitcommit
 
-Set-Alias ":q" ex
-Set-Alias todo open2vims
+# Execute python
+Set-Alias pyexe exepy

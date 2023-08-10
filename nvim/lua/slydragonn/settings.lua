@@ -5,6 +5,7 @@ local o = vim.o
 
 global.mapleader = " "
 global.maplocalleader = " "
+global.python3_host_prog = "C:/Users/GNCZD/Envs/neovim/Scripts/python.exe"
 
 -- Editor options
 
@@ -27,3 +28,10 @@ o.showcmd = true
 o.showmatch = true
 o.inccommand = "split"
 o.splitbelow = "splitright"
+
+o.shell = "pwsh"
+o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+o.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+o.shellquote = ""
+o.shellxquote = ""
