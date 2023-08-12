@@ -41,8 +41,8 @@ map("n", "<S-TAB>", "<CMD>bprevious<CR>")
 -- Terminal
 map("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>")
 map("n", "<leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>")
-map('n', '<C-e><C-e>','<CMD>TermExec cmd="pyexe %"<CR>')
-map("t", "<C-e>", "<C-\\><C-n>")
+map('n', '<C-e><C-e>','<CMD>TermExec cmd="pyexe %"<CR>i')
+map("t", "<C-e>", "<C-\\><C-n>:q<CR>")
 
 -- Markdown Preview
 map("n", "<leader>m", "<CMD>MarkdownPreview<CR>")
