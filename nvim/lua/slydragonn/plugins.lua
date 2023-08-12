@@ -88,20 +88,20 @@ return require("packer").startup(function(use)
 --	})
 
 	-- Mason: Portable package manager
---	use({
---		"williamboman/mason.nvim",
---		config = function()
---			require("mason").setup()
---		end,
---	})
---
---	use({
---		"williamboman/mason-lspconfig.nvim",
---		config = function()
---			require("slydragonn.configs.mason-lsp")
---		end,
---		after = "mason.nvim",
---	})
+	use({
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	})
+
+	use({
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("slydragonn.configs.mason-lsp")
+		end,
+		after = "mason.nvim",
+	})
 
 	-- File manager
 	use({
@@ -112,6 +112,9 @@ return require("packer").startup(function(use)
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
+		config = function()
+			require("slydragonn.configs.neotree")
+		end,
 	})
 
 	-- Show colors

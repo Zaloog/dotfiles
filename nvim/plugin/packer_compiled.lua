@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\gnczd\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\gnczd\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\gnczd\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\gnczd\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\gnczd\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
+local package_path_str = "C:\\Users\\grams\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\grams\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\grams\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\grams\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
+local install_cpath_pattern = "C:\\Users\\grams\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,48 +76,48 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   LuaSnip = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["cmp-buffer"] = {
-    after_files = { "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-buffer\\after\\plugin\\cmp_buffer.lua" },
+    after_files = { "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-buffer\\after\\plugin\\cmp_buffer.lua" },
     load_after = {
       ["nvim-cmp"] = true
     },
     loaded = false,
     needs_bufread = false,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-buffer",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
-    after_files = { "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-path\\after\\plugin\\cmp_path.lua" },
+    after_files = { "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-path\\after\\plugin\\cmp_path.lua" },
     load_after = {
       ["nvim-cmp"] = true
     },
     loaded = false,
     needs_bufread = false,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-path",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\2\n;\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0 slydragonn.configs.gitsigns\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kanagawa.nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind-nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lualine.nvim"] = {
@@ -125,28 +125,45 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\lualine.nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\markdown-preview.nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
-  ["neo-tree.nvim"] = {
+  ["mason-lspconfig.nvim"] = {
+    config = { "\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!slydragonn.configs.mason-lsp\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neo-tree.nvim",
+    needs_bufread = false,
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    after = { "mason-lspconfig.nvim" },
+    config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0" },
+    loaded = true,
+    only_config = true,
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["neo-tree.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\31slydragonn.configs.neotree\frequire\0" },
+    loaded = true,
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
   ["nui.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nui.nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!slydragonn.configs.autopairs\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
@@ -155,86 +172,102 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-cmp",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
     config = { "\27LJ\2\nA\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\2\0\0\6*\nsetup\14colorizer\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
     config = { "\27LJ\2\n6\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\27slydragonn.configs.lsp\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-transparent"] = {
     config = { "\27LJ\2\nð\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\2B\0\2\1K\0\1\0\19exclude_groups\17extra_groups\1\0\0\1\a\0\0\23BufferLineTabClose\29BufferlineBufferSelected\19BufferLineFill\25BufferLineBackground\24BufferLineSeparator BufferLineIndicatorSelected\nsetup\16transparent\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-transparent",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-transparent",
     url = "https://github.com/xiyaowong/nvim-transparent"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
     config = { "\27LJ\2\n=\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\"slydragonn.configs.toggleterm\frequire\0" },
     loaded = true,
-    path = "C:\\Users\\gnczd\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
+    path = "C:\\Users\\grams\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\nA\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\2\0\0\6*\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!slydragonn.configs.autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\27slydragonn.configs.lsp\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0 slydragonn.configs.gitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\"slydragonn.configs.toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!slydragonn.configs.autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: neo-tree.nvim
+time([[Config for neo-tree.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\31slydragonn.configs.neotree\frequire\0", "config", "neo-tree.nvim")
+time([[Config for neo-tree.nvim]], false)
 -- Config for: nvim-transparent
 time([[Config for nvim-transparent]], true)
 try_loadstring("\27LJ\2\nð\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\2B\0\2\1K\0\1\0\19exclude_groups\17extra_groups\1\0\0\1\a\0\0\23BufferLineTabClose\29BufferlineBufferSelected\19BufferLineFill\25BufferLineBackground\24BufferLineSeparator BufferLineIndicatorSelected\nsetup\16transparent\frequire\0", "config", "nvim-transparent")
 time([[Config for nvim-transparent]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\27slydragonn.configs.lsp\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\"slydragonn.configs.toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\2\nA\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\2\0\0\6*\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: mason.nvim
+time([[Config for mason.nvim]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
+time([[Config for mason.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd mason-lspconfig.nvim ]]
+
+-- Config for: mason-lspconfig.nvim
+try_loadstring("\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!slydragonn.configs.mason-lsp\frequire\0", "config", "mason-lspconfig.nvim")
+
+time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-cmp'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufEnter * ++once lua require("packer.load")({'lualine.nvim'}, { event = "BufEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-cmp'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 
