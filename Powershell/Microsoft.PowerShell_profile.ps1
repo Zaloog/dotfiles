@@ -20,8 +20,8 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f'
 # Nice Command prompt
 #oh-my-posh --init --shell pwsh --config $env:POSH_THEMES_PATH/bayer.omp.json | Invoke-Expression
 
-#$env:VIRTUAL_ENV_DISABLE_PROMPT = 1
-$env:PY_PYTHON = "3.11"
+$env:VIRTUAL_ENV_DISABLE_PROMPT = 1
+#$env:PY_PYTHON = "3.11"
 
 # Other Themes
 # takuya
@@ -33,11 +33,15 @@ $env:PY_PYTHON = "3.11"
 # New Prompt
 function prompt {
 
-    $dateTime = get-date -Format "dd.MM.yyyy HH:mm:ss"
+    $dateTime = get-date -Format "dd.MM.yyyy HH:mms"
     $regex = [regex]::Escape($HOME) + "(\\.*)*$"
     $new_home =$executionContext.SessionState.Path.CurrentLocation.Path -replace $regex, '~$1' 
+    $venv = if ($env:VIRTUAL_ENV_PROMPT) {"($env:VIRTUAL_ENV_PROMPT) "} else {''}
 
     Write-Host "[$dateTime] " -NoNewline -ForegroundColor Red # #D30F4B
+    Write-Host $venv -NoNewline -ForegroundColor Blue # #66B512
+    Write-Host "$env:USERNAME" -NoNewline -ForegroundColor Green # #66B512
+    Write-Host " @ "  -NoNewline -ForegroundColor Yellow # #66B512
     Write-Host "$new_home" -ForegroundColor Green # #66B512
  
     return ">"
@@ -49,12 +53,6 @@ function ex{exit}
 function setaws{
       $env:AWS_PROFILE = "$args"
       echo "Set AWS_PROFILE to $env:AWS_PROFILE"
-      }
-#
-# set python version
-function setpython{
-      $env:PY_PYTHON = "$args"
-      echo "Set Python Version to $env:PY_PYTHON"
       }
 
 ###### GIT Shortcuts
@@ -132,14 +130,10 @@ Set-Alias ":q" ex
 Set-Alias todo open2vims
 Set-Alias list openoverview
 
-# scripts
-Set-Alias lambdalocal lambda_local
-
 # python env stuff
 Set-Alias act actenv
 Set-Alias envs showenv
 Set-Alias pl pipli
-Set-Alias pyv setpython
 
 # set proxy
 Set-Alias prox setproxy
@@ -154,3 +148,7 @@ Set-Alias gs gitstatus
 Set-Alias ga gitadd
 Set-Alias cm gitcommit
 
+##### Autocompletions
+Get-ChildItem "$PROFILE\..\Completions\" | ForEach-Object {
+    . $_.FullName
+}
