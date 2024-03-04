@@ -11,14 +11,16 @@ Set-PSReadlineOption -PredictionViewStyle InlineView
 Set-PSReadlineOption -Color @{InlinePrediction="`e[48;5;238m"}
 Set-PSReadlineKeyHandler -Chord Ctrl+j -Function AcceptSuggestion
 Set-PSReadlineOption -BellStyle None
+Set-PSReadLineOption -colors @{ Command = "Blue"}
+#Set-PSReadLineOption -colors @{ Default = "Blue"}
 
 # Setting for fuzzy finder
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f'
 
 # Nice Command prompt
-oh-my-posh --init --shell pwsh --config $env:POSH_THEMES_PATH/bayer.omp.json | Invoke-Expression
+#oh-my-posh --init --shell pwsh --config $env:POSH_THEMES_PATH/bayer.omp.json | Invoke-Expression
 
-$env:VIRTUAL_ENV_DISABLE_PROMPT = 1
+#$env:VIRTUAL_ENV_DISABLE_PROMPT = 1
 $env:PY_PYTHON = "3.11"
 
 # Other Themes
@@ -28,14 +30,18 @@ $env:PY_PYTHON = "3.11"
 
 
 ####### Functions
-# close current Session
-function ex{exit}
+# New Prompt
+function prompt {
 
-# execute Python
-function exepy(){
-  & py "$args"
-  }
+    $dateTime = get-date -Format "dd.MM.yyyy HH:mm:ss"
+    $regex = [regex]::Escape($HOME) + "(\\.*)*$"
+    $new_home =$executionContext.SessionState.Path.CurrentLocation.Path -replace $regex, '~$1' 
 
+    Write-Host "[$dateTime] " -NoNewline -ForegroundColor Red # #D30F4B
+    Write-Host "$new_home" -ForegroundColor Green # #66B512
+ 
+    return ">"
+}
 # close current Session
 function ex{exit}
 
@@ -70,12 +76,12 @@ function gitcommit(){
 ###### Manage Environments
 # activate env
 function actenv(){
-    & "C:\Users\$env:UserName\Envs\$($args[0])\Scripts\activate.ps1"
+    & "$HOME\Envs\$($args[0])\Scripts\activate.ps1"
     }
 
 # list envs
 function showenv(){
-    ls "C:\Users\$env:UserName\Envs"
+    ls "$HOME\Envs"
     }
 
 # piplist shortcut
@@ -86,28 +92,28 @@ function pipli(){
 ##### Navigation
 # desktop shortcut
 function todesktop{
-      cd "C:\Users\$env:UserName\Desktop\"
+      cd "$HOME\Desktop\"
       }
 
 # nvim mappings
 function nvimmaps() {
-    vim "C:\Users\$env:UserName\Appdata\local\nvim\lua\slydragonn\maps.lua"
+    vim "$HOME\Appdata\local\nvim\lua\slydragonn\maps.lua"
 }
 
 
 # nvim settings
 function nvimsets() {
-    vim "C:\Users\$env:UserName\Appdata\local\nvim\lua\slydragonn\settings.lua"
+    vim "$HOME\Appdata\local\nvim\lua\slydragonn\settings.lua"
 }
 
 # nvim plugins
 function nvimplug() {
-    vim "C:\Users\$env:UserName\Appdata\local\nvim\lua\slydragonn\plugins.lua"
+    vim "$HOME\Appdata\local\nvim\lua\slydragonn\plugins.lua"
 }
 
 # aws profiles
 function awsprofiles() {
-    vim "C:\Users\$env:UserName\.aws\credentials"
+    vim "$HOME\.aws\credentials"
 }
 ##### Alias
 
@@ -148,5 +154,3 @@ Set-Alias gs gitstatus
 Set-Alias ga gitadd
 Set-Alias cm gitcommit
 
-# Execute python
-Set-Alias pyexe exepy
