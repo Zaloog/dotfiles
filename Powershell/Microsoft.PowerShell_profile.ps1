@@ -3,6 +3,7 @@
 
 # Beautiful Icons and colored Names
 Import-Module Terminal-Icons
+Import-Module PSReadLine
 
 # Command Line Tweaks
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
@@ -12,10 +13,14 @@ Set-PSReadlineOption -Color @{InlinePrediction="`e[48;5;238m"}
 Set-PSReadlineKeyHandler -Chord Ctrl+j -Function AcceptSuggestion
 Set-PSReadlineOption -BellStyle None
 Set-PSReadLineOption -colors @{ Command = "Blue"}
-#Set-PSReadLineOption -colors @{ Default = "Blue"}
 
 # Setting for fuzzy finder
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f'
+Set-PSFzfOption -PSReadlineChordProvider 'Ctrl+f'
+#
+# example command - use $Location with a different command:
+$commandOverride = [ScriptBlock]{ param($Location) Write-Host $Location }
+# pass your override to PSFzf:
+Set-PsFzfOption -AltCCommand $commandOverride
 
 # Nice Command prompt
 #oh-my-posh --init --shell pwsh --config $env:POSH_THEMES_PATH/bayer.omp.json | Invoke-Expression
