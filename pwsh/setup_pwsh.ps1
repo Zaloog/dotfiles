@@ -5,23 +5,23 @@ if (-not (Test-Path -Path $PROFILE)) {
     if ($createProfile -eq "Y") {
         New-Item -ItemType File -Path $PROFILE -Force | Out-Null
     } else {
-        Write-Host "Profile setup aborted." -Foregroundcolor Red
+        Write-Host "Powershell Profile setup aborted." -Foregroundcolor Red
         Exit
     }
 } else {
     $overwriteProfile = Read-Host "Profile file already exists. Do you want to overwrite it? (Y/N)"
     if ($overwriteProfile -eq "N") {
-        Write-Host "Profile setup aborted." -Foregroundcolor Red
+        Write-Host "Powershell Profile setup aborted." -Foregroundcolor Red
         Exit
     }
 }
 
 # Step 2: Set the content of your repo profile as the content of the $PROFILE file
-$repoProfilePath = ".\Powershell\Microsoft.PowerShell_profile.ps1"
+$repoProfilePath = "$PSScriptRoot\Microsoft.PowerShell_profile.ps1"
 if (Test-Path -Path $repoProfilePath) {
     Write-Host "Setting up your repo profile as the content of your profile file..."
     Get-Content -Path $repoProfilePath | Set-Content -Path $PROFILE -Force
-    Write-Host "Profile setup completed." -Foregroundcolor Green
+    Write-Host "Powershell Profile setup completed." -Foregroundcolor Green
 
 } else {
     Write-Host "Repo profile file not found. Make sure the path is correct: $repoProfilePath" 
@@ -58,7 +58,7 @@ function Install-OrUpdateModule {
 
 # Step 4: Install or update modules listed in the file
 Write-Host "Installing/Updating Powershell Modules" -Foregroundcolor Blue
-$modulesFilePath = ".\Powershell\modules"
+$modulesFilePath = "$PSScriptRoot\modules"
 if (Test-Path -Path $modulesFilePath) {
     $modules = Get-Content -Path $modulesFilePath
     Write-Host "Reading module list from file: $modulesFilePath"
@@ -68,7 +68,7 @@ if (Test-Path -Path $modulesFilePath) {
         Install-OrUpdateModule -moduleName $module
     }
 
-    Write-Host "Required modules setup completed." -Foregroundcolor Green
+    Write-Host "Required Powershell modules setup completed." -Foregroundcolor Green
 } else {
     Write-Host "Module list file not found. Make sure the path is correct: $modulesFilePath"
 }
