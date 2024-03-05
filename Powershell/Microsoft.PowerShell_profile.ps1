@@ -36,15 +36,15 @@ function prompt {
     $dateTime = get-date -Format "dd.MM.yyyy HH:mms"
     $regex = [regex]::Escape($HOME) + "(\\.*)*$"
     $new_home =$executionContext.SessionState.Path.CurrentLocation.Path -replace $regex, '~$1' 
-    $venv = if ($env:VIRTUAL_ENV_PROMPT) {"($env:VIRTUAL_ENV_PROMPT) "} else {''}
+    $venv = if ($env:VIRTUAL_ENV) {"($( Split-Path $env:VIRTUAL_ENV -Leaf)) "} else {''}
 
-    Write-Host "[$dateTime] " -NoNewline -ForegroundColor Red # #D30F4B
-    Write-Host $venv -NoNewline -ForegroundColor Blue # #66B512
-    Write-Host "$env:USERNAME" -NoNewline -ForegroundColor Green # #66B512
-    Write-Host " @ "  -NoNewline -ForegroundColor Yellow # #66B512
-    Write-Host "$new_home" -ForegroundColor Green # #66B512
+    Write-Host "[$dateTime] " -NoNewline -ForegroundColor DarkRed
+    Write-Host $venv -NoNewline -ForegroundColor DarkBlue
+    Write-Host "$env:USERNAME" -NoNewline -ForegroundColor Green
+    Write-Host " @ "  -NoNewline -ForegroundColor DarkBlue
+    Write-Host "$new_home" -ForegroundColor Green
  
-    return ">"
+    return "$ "
 }
 # close current Session
 function ex{exit}
