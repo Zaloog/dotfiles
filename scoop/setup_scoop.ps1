@@ -10,8 +10,6 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Write-Host "Scoop is not installed. Installing Scoop..." -ForegroundColor Blue
     # Install Scoop
     Invoke-RestMethod -Uri "https://get.scoop.sh" | Invoke-Expression
-    Write-Host "Scoop installed successfully. Please restart your shell." -ForegroundColor Yellow
-    Exit
     }
 else {
     Write-Host "Scoop already installed"  -ForegroundColor Green

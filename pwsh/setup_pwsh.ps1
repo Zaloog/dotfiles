@@ -76,3 +76,15 @@ if (Test-Path -Path $modulesFilePath) {
 
 
 
+## Create a folder named "Completions" at the location of the PowerShell profile and its parent directory
+Write-Host "Creating Completions folder..." -Foregroundcolor Blue
+$profileDirectory = Split-Path $profile -Parent
+$completionsDirectory = Join-Path -Path $profileDirectory -ChildPath "Completions"
+
+# Check if the Completions directory exists, and create it if it doesn't
+if (-not (Test-Path $completionsDirectory -PathType Container)) {
+    New-Item -Path $completionsDirectory -ItemType Directory -Force
+    Write-Host "Completions folder created at: $completionsDirectory" -ForegroundColor Green
+} else {
+    Write-Host "Completions folder already exists at: $completionsDirectory" -ForegroundColor Yellow
+}

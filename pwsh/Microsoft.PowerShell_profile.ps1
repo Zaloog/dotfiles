@@ -153,7 +153,9 @@ Set-Alias gs gitstatus
 Set-Alias ga gitadd
 Set-Alias cm gitcommit
 
-##### Autocompletions
-Get-ChildItem "$PROFILE\..\Completions\" | ForEach-Object {
-    . $_.FullName
+#### Autocompletions
+$completionPath = "$PROFILE\..\Completions\"
+if (Test-Path $completionPath) {
+    Get-ChildItem  | ForEach-Object {
+    . $_.FullName}
 }
