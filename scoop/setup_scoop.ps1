@@ -42,26 +42,10 @@ function Setup-ScoopPackages {
 }
 
 # Add the extra bucket
-Write-Host "Adding extra bucket 'nerd-fonts' to Scoop..." -ForegroundColor Blue
+Write-Host "Adding bucket 'nerd-fonts' to Scoop..." -ForegroundColor Blue
 scoop bucket add nerd-fonts
+Write-Host "Adding bucket 'extras' to Scoop..." -ForegroundColor Blue
+scoop bucket add extras
 
 # Call the function with the path to the Scoop packages file
 Setup-ScoopPackages -packagesFile "$PSScriptRoot\packages"
-
-# Function to copy Hack-NF font from Scoop to local font folder
-#function Copy-HackNFFontToLocal {
-#    $scoopFontPath = scoop prefix Hack-NF
-#    $localFontPath = "%LOCALAPPDATA%\Microsoft\Windows\Fonts\Hack-NF.ttf"  # Destination path in the local font folder
-#
-#    # Check if Hack-NF font is installed
-#    if (-not (Test-Path $localFontPath)) {
-#        # Copy font file from Scoop to local font folder
-#        Copy-Item -Path "$scoopFontPath" -Destination $localFontPath -Force
-#        Write-Host "Hack-NF font copied to the local font folder." -ForegroundColor Green
-#    } else {
-#        Write-Host "Hack-NF font is already installed in the local font folder." -ForegroundColor Yellow
-#    }
-#}
-#
-## Example usage:
-#Copy-HackNFFontToLocal
