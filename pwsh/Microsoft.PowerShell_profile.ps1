@@ -38,7 +38,7 @@ $env:VIRTUAL_ENV_DISABLE_PROMPT = 1
 # New Prompt
 function prompt {
 
-    $dateTime = get-date -Format "dd.MM.yyyy HH:mms"
+    $dateTime = get-date -Format "dd.MM.yyyy HH:mm:ss"
     $regex = [regex]::Escape($HOME) + "(\\.*)*$"
     $new_home =$executionContext.SessionState.Path.CurrentLocation.Path -replace $regex, '~$1' 
     $venv = if ($env:VIRTUAL_ENV) {"($( Split-Path $env:VIRTUAL_ENV -Leaf)) "} else {''}

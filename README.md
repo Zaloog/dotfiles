@@ -6,5 +6,5 @@ My configurations for
 
 In Windows Powershell execute:
 ```Powershell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 ```

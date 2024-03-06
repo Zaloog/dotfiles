@@ -1,4 +1,5 @@
 neovim
+fzf
 pipx
 pwsh
 rustup-gnu

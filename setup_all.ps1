@@ -9,8 +9,12 @@ Write-Host "Running setup for Scoop..." -Foregroundcolor Cyan
 
 # Run setup_pwsh.ps1
 Write-Host "Running setup for PowerShell..." -Foregroundcolor Cyan
-pwsh -Command {& Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Confirm:$false}
+pwsh -Command {& Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Confirm:$false}
 pwsh "$PSScriptRoot\pwsh\setup_pwsh.ps1"
+
+# Run setup_scoop.ps1
+Write-Host "Running setup for Scoop..." -Foregroundcolor Cyan
+. "$PSScriptRoot\windows-terminal\setup_windows_terminal.ps1"
 
 # Run setup_nvim.ps1
 Write-Host "Running setup for Neovim..." -Foregroundcolor Cyan

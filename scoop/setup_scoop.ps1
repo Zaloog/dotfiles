@@ -1,5 +1,11 @@
 # Step 1: Install scoop
 # Check if Scoop is installed
+$confirmscoop = Read-Host "In the following scoop will be setup, do you want to continue? (Y/N)"
+if ($confirmscoop -eq "N") {
+  Write-Host "Scoop setup aborted" -Foregroundcolor Red
+  Exit
+  }
+
 if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Write-Host "Scoop is not installed. Installing Scoop..." -ForegroundColor Blue
     # Install Scoop

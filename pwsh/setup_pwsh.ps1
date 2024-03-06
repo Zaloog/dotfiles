@@ -1,4 +1,5 @@
 # Step 1: Check if the profile file exists
+
 Write-Host "Setting new Powershell Profile" -Foregroundcolor Blue
 if (-not (Test-Path -Path $PROFILE)) {
     $createProfile = Read-Host "Profile file doesn't exist. Do you want to create it? (Y/N)"
