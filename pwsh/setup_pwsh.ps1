@@ -53,7 +53,6 @@ function Install-OrUpdateModule {
         }
     }
 
-    #Import-Module -Name $moduleName -Force
 }
 
 

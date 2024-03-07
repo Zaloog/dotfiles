@@ -156,6 +156,6 @@ Set-Alias cm gitcommit
 #### Autocompletions
 $completionPath = "$PROFILE\..\Completions\"
 if (Test-Path $completionPath) {
-    Get-ChildItem  | ForEach-Object {
+    Get-ChildItem  -Path $completionPath | ForEach-Object {
     . $_.FullName}
 }

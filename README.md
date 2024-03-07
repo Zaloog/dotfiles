@@ -1,10 +1,17 @@
 # Configs
 
 My configurations for 
-- Powershell
-- Vim
+- Powershell (pwsh)
+- Windows-Terminal
+- Scoop
+- nvim (still to be automated)
 
-In Windows Powershell execute:
+Step1: In Windows Powershell execute:
 ```Powershell
-Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Step2: adjust packages/modules as needed and execute the setup script 
+```Powershell
+setup_all.ps1
 ```
