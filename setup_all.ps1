@@ -13,7 +13,7 @@ pwsh -Command {& Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Confirm:$f
 pwsh -noprofile "$PSScriptRoot\pwsh\setup_pwsh.ps1"
 
 # Run setup_scoop.ps1
-Write-Host "Running setup for Scoop..." -Foregroundcolor Cyan
+Write-Host "Running setup for Windows-Terminal..." -Foregroundcolor Cyan
 . "$PSScriptRoot\windows-terminal\setup_windows_terminal.ps1"
 
 # Run setup_nvim.ps1
