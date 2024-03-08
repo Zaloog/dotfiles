@@ -17,6 +17,10 @@ Write-Host "Running setup for Windows-Terminal..." -Foregroundcolor Cyan
 . "$PSScriptRoot\windows-terminal\setup_windows_terminal.ps1"
 
 # Run setup_nvim.ps1
+Write-Host "Running setup for Rye..." -Foregroundcolor Cyan
+. "$PSScriptRoot\rye\setup_rye.ps1"
+
+# Run setup_nvim.ps1
 Write-Host "Running setup for Neovim..." -Foregroundcolor Cyan
 . "$PSScriptRoot\nvim\setup_nvim.ps1"
 

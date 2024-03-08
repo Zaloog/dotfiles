@@ -1,0 +1,8 @@
+[user]
+	email = gramslars@gmail.com
+	name = Zaloog
+[credential]
+	helper = store
+[core]
+	autocrlf = false
+	editor = nvim

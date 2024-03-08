@@ -1,9 +1,7 @@
-neovim
 fzf
-pipx
 pwsh
 rustup-gnu
 rye
 sudo
-terraform
 Hack-NF
+neovim

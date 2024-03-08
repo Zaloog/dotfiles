@@ -44,28 +44,11 @@ function prompt {
     $new_home =$executionContext.SessionState.Path.CurrentLocation.Path -replace $regex, '~$1' 
     $venv = if ($env:VIRTUAL_ENV) {"($( Split-Path $env:VIRTUAL_ENV -Leaf)) "} else {''}
 
-     # Check if the current directory is a Git repository
-    $gitBranch = $null
-    $gitRepoPath = & git rev-parse --show-toplevel 2>$null
-    if ($gitRepoPath) {
-        $gitBranch = & git rev-parse --abbrev-ref HEAD 2>$null
-        # Check for uncommitted changes
-        $uncommittedChanges = & git status --porcelain
-    }
-
     Write-Host "[$dateTime] " -NoNewline -ForegroundColor DarkRed
     Write-Host $venv -NoNewline -ForegroundColor DarkBlue
     Write-Host "$env:USERNAME" -NoNewline -ForegroundColor Green
     Write-Host " @ "  -NoNewline -ForegroundColor DarkBlue
     Write-Host "$new_home" -NoNewline -ForegroundColor Green
-    # Add Git branch indicator if available
-    if ($gitBranch) {
-        if ($uncommittedChanges) {
-            Write-Host " | $gitBranch" -ForegroundColor Red -NoNewline
-        } else {
-            Write-Host " | $gitBranch" -ForegroundColor Yellow -NoNewline
-        }
-    }
  
     return "`n$ "
 }
