@@ -14,14 +14,18 @@ pwsh -noprofile "$PSScriptRoot\pwsh\setup_pwsh.ps1"
 
 # Run setup_scoop.ps1
 Write-Host "Running setup for Windows-Terminal..." -Foregroundcolor Cyan
-. "$PSScriptRoot\windows-terminal\setup_windows_terminal.ps1"
+pwsh "$PSScriptRoot\windows-terminal\setup_windows_terminal.ps1"
 
-# Run setup_nvim.ps1
+# Run setup_rye.ps1
 Write-Host "Running setup for Rye..." -Foregroundcolor Cyan
-. "$PSScriptRoot\rye\setup_rye.ps1"
+pwsh "$PSScriptRoot\rye\setup_rye.ps1"
+
+# Run setup_git.ps1
+Write-Host "Running setup for Rye..." -Foregroundcolor Cyan
+pwsh "$PSScriptRoot\rye\setup_git.ps1"
 
 # Run setup_nvim.ps1
 Write-Host "Running setup for Neovim..." -Foregroundcolor Cyan
-. "$PSScriptRoot\nvim\setup_nvim.ps1"
+pwsh "$PSScriptRoot\nvim\setup_nvim.ps1"
 
 Write-Host "All setups completed." -Foregroundcolor Green
