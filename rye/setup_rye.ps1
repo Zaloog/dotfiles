@@ -19,4 +19,4 @@ if (Test-Path $repoConfigPath) {
     Write-Host "config.toml file not found in the repository path." -ForegroundColor Red
 }
 
-rye self completion -s powershell | Out-File -Encoding utf8 $PROFILE\..\Completions\rye_completion1.ps1
+rye self completion -s powershell | Out-File -Encoding utf8 $PROFILE\..\Completions\rye_completion.ps1
