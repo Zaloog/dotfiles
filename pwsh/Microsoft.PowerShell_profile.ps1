@@ -17,22 +17,10 @@ Set-PSReadLineOption -colors @{ Command = "Blue"}
 
 # Setting for fuzzy finder
 Set-PSFzfOption -PSReadlineChordProvider 'Ctrl+f'
-#
-# example command - use $Location with a different command:
-$commandOverride = [ScriptBlock]{ param($Location) Write-Host $Location }
-# pass your override to PSFzf:
-Set-PsFzfOption -AltCCommand $commandOverride
 
-# Nice Command prompt
-#oh-my-posh --init --shell pwsh --config $env:POSH_THEMES_PATH/bayer.omp.json | Invoke-Expression
-
+####### Environment Variables for nvim config and venv prompt
 $env:VIRTUAL_ENV_DISABLE_PROMPT = 1
-#$env:PY_PYTHON = "3.11"
-
-# Other Themes
-# takuya
-# half-life
-# jv_sitecorian
+$env:NVIM_APPNAME = "nvim"
 
 
 ####### Functions
