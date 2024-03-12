@@ -60,6 +60,11 @@ function gitadd{
       git add .
       }
 
+# git pull shortcut
+function gitpull{
+      git pull
+      }
+
 # git commit shortcut
 function gitcommit(){
       git commit -m "$args"
@@ -87,42 +92,21 @@ function todesktop{
       cd "$HOME\Desktop\"
       }
 
-# nvim mappings
-function nvimmaps() {
-    vim "$HOME\Appdata\local\nvim\lua\slydragonn\maps.lua"
-}
-
-
-# nvim settings
-function nvimsets() {
-    vim "$HOME\Appdata\local\nvim\lua\slydragonn\settings.lua"
-}
-
-# nvim plugins
-function nvimplug() {
-    vim "$HOME\Appdata\local\nvim\lua\slydragonn\plugins.lua"
-}
-
 # aws profiles
 function awsprofiles() {
     vim "$HOME\.aws\credentials"
 }
 ##### Alias
 
-# vim proxys
-Set-Alias vim nvim
-Set-Alias vimmaps nvimmaps
-Set-Alias vimsets nvimsets
-Set-Alias vimplugs nvimplug
 
 # utils
 Set-Alias grep findstr
-Set-Alias tf terraform
 Set-Alias ll ls
 Set-Alias ddd todesktop
 Set-Alias ":q" ex
-Set-Alias todo open2vims
-Set-Alias list openoverview
+Set-Alias vim nvim
+Set-Alias g git
+Set-Alias r rye
 
 # python env stuff
 Set-Alias act actenv
@@ -139,6 +123,7 @@ Set-Alias prof awsprofiles
 
 # git stuff
 Set-Alias gs gitstatus
+Set-Alias gg gitpull
 Set-Alias ga gitadd
 Set-Alias cm gitcommit
 
