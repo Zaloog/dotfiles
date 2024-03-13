@@ -43,11 +43,17 @@ function prompt {
 # close current Session
 function ex{exit}
 
+##### AWS
 # set aws profile
 function setaws{
       $env:AWS_PROFILE = "$args"
       echo "Set AWS_PROFILE to $env:AWS_PROFILE"
       }
+#
+# aws profiles
+function awsprofiles() {
+    vim "$HOME\.aws\credentials"
+}
 
 ###### GIT Shortcuts
 # git status shortcut
@@ -70,7 +76,7 @@ function gitcommit(){
       git commit -m "$args"
       }
 
-###### Manage Environments
+##### Manage Environments
 # activate env
 function actenv(){
     & "$HOME\Envs\$($args[0])\Scripts\activate.ps1"
@@ -92,13 +98,15 @@ function todesktop{
       cd "$HOME\Desktop\"
       }
 
-# aws profiles
-function awsprofiles() {
-    vim "$HOME\.aws\credentials"
+# Change nvim config
+function switch_nvim ($args) {
+  if (not $env:NVIM_APPNAME) {
+    $env:NVIM_APPNAME = "nvim"}
+  else {$env:NVIM_APPNAME = $args}
 }
+
+
 ##### Alias
-
-
 # utils
 Set-Alias grep findstr
 Set-Alias ll ls
@@ -107,6 +115,8 @@ Set-Alias ":q" ex
 Set-Alias vim nvim
 Set-Alias g git
 Set-Alias r rye
+Set-Alias s rye
+Set-Alias wi switch_nvim
 
 # python env stuff
 Set-Alias act actenv
