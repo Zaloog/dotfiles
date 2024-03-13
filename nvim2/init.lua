@@ -89,8 +89,8 @@ vim.keymap.set("n", "<S-TAB>", "<CMD>bprevious<CR>")
 --vim.keymap.set("t", "<C-e>", "<C-\\><C-n>:q<CR>")
 
 -- Markdown Preview
--- vim.keymap.set("n", "<leader>m", "<CMD>MarkdownPreview<CR>")
--- vim.keymap.set("n", "<leader>mn", "<CMD>MarkdownPreviewStop<CR>")
+vim.keymap.set("n", "<leader>m", "<CMD>MarkdownPreview<CR>")
+vim.keymap.set("n", "<leader>mn", "<CMD>MarkdownPreviewStop<CR>")
 
 -- Window Navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h")
@@ -114,41 +114,58 @@ local snip_if_name = "$HOME/.vimrc"
 vim.keymap.set("n", ",if", ":-1read "..snip_if_name.."<CR>")
 
 
--- Colorscheme
 
-	-- cmp: Autocomplete
---	use({
---		"hrsh7th/nvim-cmp",
---		event = "InsertEnter",
---		config = function()
---			require("slydragonn.configs.cmp")
---		end,
---	})
---
---	-- autopairs
---	use({
---		"windwp/nvim-autopairs",
---		config = function()
---			require("slydragonn.configs.autopairs")
---		end,
---	})
-
-
--- Plugins
+-- Install/Load Plugins
+-- Use ':PlugInstall' afterwards
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
 
   -- Kanagawa Colorscheme
   Plug('rebelot/kanagawa.nvim')
-  -- Autopair
+  -- Autopair brackets
   Plug('windwp/nvim-autopairs')
+  -- AutoComplete
+  Plug('neovim/nvim-lspconfig')
+  Plug('hrsh7th/cmp-nvim-lsp')
+  Plug('hrsh7th/cmp-buffer')
+  Plug('hrsh7th/cmp-path')
+  Plug('hrsh7th/cmp-cmdline')
+  Plug('hrsh7th/nvim-cmp')
 
 vim.call('plug#end') 
 
 
+-- Activate Plugins
 -- Activate Colorscheme
 vim.cmd('colorscheme kanagawa')
 -- Activate Autopairs
 require("nvim-autopairs").setup()
+
+-- Activate AutoComplete
+local cmp = require("cmp")
+-- Settings AutoComplete
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+  -- mappings are selectabel with C-j, C-k
+	mapping = cmp.mapping.preset.insert({
+		["<CR>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
+	}),
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "buffer" },
+	}),
+})
+
+vim.cmd([[
+  set completeopt=menuone,noinsert,noselect
+  highlight! default link CmpItemKind CmpItemMenuDefault
+]])
 
