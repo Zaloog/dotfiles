@@ -1,19 +1,19 @@
 # Step 1: Check if the profile file exists
 
-Write-Host "Setting new Powershell Profile" -Foregroundcolor Blue
+Write-Host "Setting new Powershell Profile" -ForegroundColor Blue
 if (-not (Test-Path -Path $PROFILE)) {
     $createProfile = Read-Host "Profile file doesn't exist. Do you want to create it? (Y/N)"
     if ($createProfile -eq "Y") {
         New-Item -ItemType File -Path $PROFILE -Force | Out-Null
     } else {
-        Write-Host "Powershell Profile setup aborted." -Foregroundcolor Red
+        Write-Host "Powershell Profile setup aborted." -ForegroundColor Red
         Exit
     }
 } else {
     $overwriteProfile = Read-Host "Profile file already exists. Do you want to overwrite it? (Y/N)"
     if ($overwriteProfile -eq "N") {
-        Write-Host "Powershell Profile setup aborted." -Foregroundcolor Red
-        Exit
+        Write-Host "Powershell Profile setup aborted." -ForegroundColor Red
+        
     }
 }
 
@@ -22,7 +22,7 @@ $repoProfilePath = "$PSScriptRoot\Microsoft.PowerShell_profile.ps1"
 if (Test-Path -Path $repoProfilePath) {
     Write-Host "Setting up your repo profile as the content of your profile file..."
     Get-Content -Path $repoProfilePath | Set-Content -Path $PROFILE -Force
-    Write-Host "Powershell Profile setup completed." -Foregroundcolor Green
+    Write-Host "Powershell Profile setup completed." -ForegroundColor Green
 
 } else {
     Write-Host "Repo profile file not found. Make sure the path is correct: $repoProfilePath" 
@@ -35,7 +35,7 @@ function Install-OrUpdateModule {
         [string]$moduleName
     )
 
-    Write-Host "Checking module $moduleName..." -Foregroundcolor Yellow
+    Write-Host "Checking module $moduleName..." -ForegroundColor Yellow
 
     if (-not (Get-Module -Name $moduleName -ListAvailable)) {
         Write-Host "Installing module $moduleName..."
@@ -57,18 +57,29 @@ function Install-OrUpdateModule {
 
 
 # Step 4: Install or update modules listed in the file
-Write-Host "Installing/Updating Powershell Modules" -Foregroundcolor Blue
+Write-Host "Installing/Updating Powershell Modules" -ForegroundColor Blue
 $modulesFilePath = "$PSScriptRoot\modules"
+$modules = Get-Content -Path $modulesFilePath
 if (Test-Path -Path $modulesFilePath) {
-    $modules = Get-Content -Path $modulesFilePath
-    Write-Host "Reading module list from file: $modulesFilePath"
-    Write-Host "Checking and installing or updating required PowerShell modules..."
-
+    Write-Host "The following Modules are about to get installed/updated"
     foreach ($module in $modules) {
-        Install-OrUpdateModule -moduleName $module
+        Write-Host "- $module" -ForegroundColor Green
+    }
+    $installModules = Read-Host "Do you want to install/update Modules? [Y/N]"
+    if ($installModules -eq "Y") {
+        Write-Host "Reading module list from file: $modulesFilePath"
+        Write-Host "Checking and installing or updating required PowerShell modules..."
+
+        foreach ($module in $modules) {
+            Install-OrUpdateModule -moduleName $module
+        }
+
+        Write-Host "Required Powershell modules setup completed." -ForegroundColor Green
+    } else {
+        Write-Host "Powershell Module Installation/Updating aborted." -ForegroundColor Red
+        
     }
 
-    Write-Host "Required Powershell modules setup completed." -Foregroundcolor Green
 } else {
     Write-Host "Module list file not found. Make sure the path is correct: $modulesFilePath"
 }
@@ -76,7 +87,7 @@ if (Test-Path -Path $modulesFilePath) {
 
 
 ## Create a folder named "Completions" at the location of the PowerShell profile and its parent directory
-Write-Host "Creating Completions folder..." -Foregroundcolor Blue
+Write-Host "Creating Completions folder..." -ForegroundColor Blue
 $profileDirectory = Split-Path $profile -Parent
 $completionsDirectory = Join-Path -Path $profileDirectory -ChildPath "Completions"
 

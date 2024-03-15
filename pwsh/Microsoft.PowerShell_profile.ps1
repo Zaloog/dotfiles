@@ -27,16 +27,27 @@ $env:NVIM_APPNAME = "nvim"
 # New Prompt
 function prompt {
 
-    $dateTime = get-date -Format "dd.MM.yyyy HH:mm:ss"
+    #$dateTime = get-date -Format "dd.MM.yyyy HH:mm:ss"
+    $gh_name = "Zaloog"
     $regex = [regex]::Escape($HOME) + "(\\.*)*$"
     $new_home =$executionContext.SessionState.Path.CurrentLocation.Path -replace $regex, '~$1' 
-    $venv = if ($env:VIRTUAL_ENV) {"($( Split-Path $env:VIRTUAL_ENV -Leaf)) "} else {''}
+    $venv = if ($env:VIRTUAL_ENV) {"$( Split-Path $env:VIRTUAL_ENV -Leaf)"} else {''}
 
-    Write-Host "[$dateTime] " -NoNewline -ForegroundColor DarkRed
-    Write-Host $venv -NoNewline -ForegroundColor DarkBlue
-    Write-Host "$env:USERNAME" -NoNewline -ForegroundColor Green
-    Write-Host " @ "  -NoNewline -ForegroundColor DarkBlue
-    Write-Host "$new_home" -NoNewline -ForegroundColor Green
+    Write-Host $gh_name -NoNewline -ForegroundColor DarkRed
+    Write-Host " at "  -NoNewline -ForegroundColor Yellow
+    Write-Host $env:USERNAME -NoNewline -ForegroundColor Blue
+    Write-Host " in "  -NoNewline -ForegroundColor Yellow
+    Write-Host $new_home -NoNewline -ForegroundColor Green
+    #Write-Host "[$dateTime] " -NoNewline -ForegroundColor DarkRed
+    if ($env:VIRTUAL_ENV) {
+      Write-Host " using "  -NoNewline -ForegroundColor Yellow
+      Write-Host $venv -NoNewline -ForegroundColor DarkBlue
+    }
+
+    if ($env:HTTP_PROXY) {
+      Write-Host " under "  -NoNewline -ForegroundColor Yellow
+      Write-Host $env:HTTP_PROXY -NoNewline -ForegroundColor White
+    }
  
     return "`n$ "
 }
