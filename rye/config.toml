@@ -6,6 +6,9 @@ requires-python = ">= 3.8"
 # This is the default toolchain that is used
 toolchain = "cpython@3.11.8"
 
+# This is the default license that is used
+license = "MIT"
+
 [behavior]
 # Enables global shims when set to `true`.  This means that the installed
 # `python` shim will resolve to a Rye managed toolchain even outside of
@@ -15,3 +18,28 @@ global-python = true
 # When set to `true` enables experimental support of uv as a replacement
 # for pip-tools. Learn more about uv here: https://github.com/astral-sh/uv
 use-uv = true
+
+# Enable or disable automatic `sync` after `add` and `remove`.  This defaults
+# to `true` when uv is enabled and `false` otherwise.
+autosync = true
+
+# Marks the managed .venv in a way that cloud based synchronization systems
+# like Dropbox and iCloud Files will not upload it.  This defaults to true
+# as a .venv in cloud storage typically does not make sense.  Set this to
+# `false` to disable this behavior.
+venv-mark-sync-ignore = true
+
+[[sources]]
+# pypi default package index
+name = "default"
+url = "http://pypi.org/simple/"
+
+# custom package index
+#name = "company-internal"
+# Normal URL
+#url = "https://company.internal/simple/"
+# Or using environment Variables
+#url = "https://${INDEX_USERNAME}:${INDEX_PASSWORD}@company.internal/simple/"
+# Authentification
+# username = "username"
+# password = "super secret"
