@@ -60,7 +60,20 @@ function setaws{
       $env:AWS_PROFILE = "$args"
       echo "Set AWS_PROFILE to $env:AWS_PROFILE"
       }
-#
+# set proxy
+function setproxy{
+      $proxy = ""
+      $env:HTTP_PROXY = $proxy
+      $env:HTTPS_PROXY = $proxy
+      echo "Set Proxy to $proxy"
+      }
+
+function unsetproxy{
+      $proxy = ""
+      $env:HTTP_PROXY = $proxy
+      $env:HTTPS_PROXY = $proxy
+      echo "Unset Proxy"
+      }
 # aws profiles
 function awsprofiles() {
     vim "$HOME\.aws\credentials"
