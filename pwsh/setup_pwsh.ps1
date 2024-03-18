@@ -1,32 +1,38 @@
-# Step 1: Check if the profile file exists
+# Step 1: Set the content of your repo profile as the content of the $PROFILE file
+function Update-Profile-File{
+  $repoProfilePath = "$PSScriptRoot\Microsoft.PowerShell_profile.ps1"
+  if (Test-Path -Path $repoProfilePath) {
+      Write-Host "Setting up your repo profile as the content of your profile file..."
+      Get-Content -Path $repoProfilePath | Set-Content -Path $PROFILE -Force
+      Write-Host "Powershell Profile setup completed." -ForegroundColor Green
+  
+  } else {
+      Write-Host "Repo profile file not found. Make sure the path is correct: $repoProfilePath" 
+  }
+}
+
+# Step 2: Check if the profile file exists and Update
 
 Write-Host "Setting new Powershell Profile" -ForegroundColor Blue
 if (-not (Test-Path -Path $PROFILE)) {
     $createProfile = Read-Host "Profile file doesn't exist. Do you want to create it? (Y/N)"
     if ($createProfile -eq "Y") {
         New-Item -ItemType File -Path $PROFILE -Force | Out-Null
+        Update-Profile-File
     } else {
         Write-Host "Powershell Profile setup aborted." -ForegroundColor Red
-        Exit
+        
     }
 } else {
     $overwriteProfile = Read-Host "Profile file already exists. Do you want to overwrite it? (Y/N)"
     if ($overwriteProfile -eq "N") {
         Write-Host "Powershell Profile setup aborted." -ForegroundColor Red
         
+    } else {
+      Update-Profile-File
     }
 }
 
-# Step 2: Set the content of your repo profile as the content of the $PROFILE file
-$repoProfilePath = "$PSScriptRoot\Microsoft.PowerShell_profile.ps1"
-if (Test-Path -Path $repoProfilePath) {
-    Write-Host "Setting up your repo profile as the content of your profile file..."
-    Get-Content -Path $repoProfilePath | Set-Content -Path $PROFILE -Force
-    Write-Host "Powershell Profile setup completed." -ForegroundColor Green
-
-} else {
-    Write-Host "Repo profile file not found. Make sure the path is correct: $repoProfilePath" 
-}
 
 
 # Function to install or update PowerShell modules
