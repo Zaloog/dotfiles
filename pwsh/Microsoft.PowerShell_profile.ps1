@@ -21,6 +21,7 @@ Set-PSFzfOption -PSReadlineChordProvider 'Ctrl+f'
 ####### Environment Variables for nvim config and venv prompt
 $env:VIRTUAL_ENV_DISABLE_PROMPT = 1
 $env:NVIM_APPNAME = "nvim"
+$env:EDITOR = "nvim"
 
 
 ####### Functions
