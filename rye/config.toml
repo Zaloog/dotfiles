@@ -32,7 +32,7 @@ venv-mark-sync-ignore = true
 [[sources]]
 # pypi default package index
 name = "default"
-url = "http://pypi.org/simple/"
+url = "https://pypi.org/simple/"
 
 # custom package index
 #name = "company-internal"
