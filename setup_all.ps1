@@ -21,7 +21,7 @@ Write-Host "Running setup for Rye..." -Foregroundcolor Cyan
 pwsh "$PSScriptRoot\rye\setup_rye.ps1"
 
 # Run setup_git.ps1
-Write-Host "Running setup for Rye..." -Foregroundcolor Cyan
+Write-Host "Running setup for Git..." -Foregroundcolor Cyan
 pwsh "$PSScriptRoot\rye\setup_git.ps1"
 
 # Run setup_nvim.ps1
