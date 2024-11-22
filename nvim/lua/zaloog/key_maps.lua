@@ -2,24 +2,25 @@
 vim.keymap.set("n", "<leader>w", "<CMD>update<CR>")
 
 -- Quit
-vim.keymap.set("n", "<leader>q", "<CMD>q<CR>")
+vim.keymap.set("n", "<leader><leader>q", "<CMD>q<CR>")
 
 -- Exit insert mode
 vim.keymap.set("i", "<C-c>", "<ESC>")
 
 -- Windows
--- vim.keymap.set("n", "<leader>n", "<CMD>vsplit<CR>")
--- vim.keymap.set("n", "<leader>p", "<CMD>split<CR>")
+vim.keymap.set("n", "<leader>n", "<CMD>vsplit<CR>")
+vim.keymap.set("n", "<leader>p", "<CMD>split<CR>")
 
 -- NeoTree
 -- vim.keymap.set("n", "<leader>e", "<CMD>Neotree toggle<CR>")
 -- vim.keymap.set("n", "<leader>o", "<CMD>Neotree focus<CR>")
 
--- Buffer
--- vim.keymap.set("n", "<TAB>", "<CMD>bnext<CR>", {})
--- vim.keymap.set("n", "<S-TAB>", "<CMD>bprevious<CR>", {})
--- vim.keymap.set("n", "<C-J>", "<CMD>bnext<CR>", {})
--- vim.keymap.set("n", "<C-K>", "<CMD>bprevious<CR>", {})
+-- Buffers
+vim.keymap.set("n", "<TAB>", "<CMD>bnext<CR>", {})
+vim.keymap.set("n", "<S-TAB>", "<CMD>bprevious<CR>", {})
+vim.keymap.set("n", "<C-j>", "<CMD>bnext<CR>", {})
+vim.keymap.set("n", "<C-k>", "<CMD>bprevious<CR>", {})
+vim.keymap.set("n", "<leader>q", "<CMD>bd<CR>", {})
 -- vim.keymap.set("i", "<C-J>", "<CMD>bnext<CR>", {})
 -- vim.keymap.set("i", "<C-K>", "<CMD>bprevious<CR>", {})
 

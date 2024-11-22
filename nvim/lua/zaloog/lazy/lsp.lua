@@ -30,6 +30,7 @@ return {
     require('mason-lspconfig').setup({
       ensure_installed = {
         "lua_ls",
+        "pylsp",
         "ruff"
       },
       handlers = {
@@ -61,6 +62,19 @@ return {
       }
     })
 
+    local lspconfig = require('lspconfig')
+    lspconfig.pylsp.setup({
+    settings = {
+        pylsp = {
+            plugins = {
+                -- ruff = { enabled = true },  -- Enable ruff for linting
+                -- pyflakes = { enabled = true },  -- Enable pyflakes for linting
+                -- autopep8 = { enabled = true },   -- Enable autopep8 for formatting
+                -- yapf = { enabled = false },       -- Disable yapf if you prefer autopep8
+            },
+        },
+    },
+    })
     local cmp = require('cmp')
 
     -- this is the function that loads the extra snippets to luasnip
