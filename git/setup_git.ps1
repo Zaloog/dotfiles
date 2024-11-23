@@ -8,7 +8,9 @@ if ($confirmgit -eq "N") {
   }
 
 $repoConfigPath = "$PSScriptRoot\.gitconfig"  
+$repoMessagePath = "$PSScriptRoot\.gitmessage"  
 $gitConfigPath = "$HOME\.gitconfig"
+$gitMessagePath = "$HOME\.gitmessage"
 
 # Check if the source file exists
 if (Test-Path $repoConfigPath) {
@@ -17,4 +19,12 @@ if (Test-Path $repoConfigPath) {
     Write-Host ".gitconfig moved to the git config directory." -ForegroundColor Green
 } else {
     Write-Host ".gitconfig file not found in the repository path." -ForegroundColor Red
+}
+
+if (Test-Path $repoMessagePath) {
+    # Move the .gitmessage file to the appropriate location
+    Get-Content -Path $repoMessagePath | Set-Content -Path $gitMessagePath -Force
+    Write-Host ".gitmessage moved to the git config directory." -ForegroundColor Green
+} else {
+    Write-Host ".gitmessage file not found in the repository path." -ForegroundColor Red
 }

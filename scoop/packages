@@ -2,6 +2,6 @@ fzf
 Hack-NF
 pwsh
 rustup-gnu
-rye
+uv
 sudo
 neovim
