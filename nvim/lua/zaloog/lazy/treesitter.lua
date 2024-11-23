@@ -7,17 +7,18 @@ return {
     configs.setup({
       ensure_installed = {
         "lua",
+	    "html",
+	    "python",
 	--"vim",
 	--"vimdoc",
 	--"elixir",
 	--"javascript",
-	"html",
-	"python",
 	--"typescript"
       },
-      sync_install = false,
+      sync_install = true,
       highlight = { enable = true },
       indent = { enable = true },
+      fold = {enable = true}
     })
   end
 }

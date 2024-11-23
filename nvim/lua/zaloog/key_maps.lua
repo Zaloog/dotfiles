@@ -16,13 +16,15 @@ vim.keymap.set("n", "<leader>p", "<CMD>split<CR>")
 -- vim.keymap.set("n", "<leader>o", "<CMD>Neotree focus<CR>")
 
 -- Buffers
-vim.keymap.set("n", "<TAB>", "<CMD>bnext<CR>", {})
-vim.keymap.set("n", "<S-TAB>", "<CMD>bprevious<CR>", {})
-vim.keymap.set("n", "<C-j>", "<CMD>bnext<CR>", {})
-vim.keymap.set("n", "<C-k>", "<CMD>bprevious<CR>", {})
+vim.keymap.set("n", "<C-j>", "<CMD>bprevious<CR>", {})
+vim.keymap.set("n", "<C-k>", "<CMD>bnext<CR>", {})
 vim.keymap.set("n", "<leader>q", "<CMD>bd<CR>", {})
--- vim.keymap.set("i", "<C-J>", "<CMD>bnext<CR>", {})
--- vim.keymap.set("i", "<C-K>", "<CMD>bprevious<CR>", {})
+
+
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "gb", vim.lsp.buf.implementation, {})
+vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+-- vim.keymap.set("n", "<leader>h", vim.lsp.buf.references, {})
 
 -- Terminal
 -- vim.keymap.set("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>", {})

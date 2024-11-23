@@ -11,7 +11,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- vim.filetype.add({
+--   extension = {
+--     tcss = "css", -- Treat .tcss as css
+--   },
+-- })
+
 require("lazy").setup({
     spec = "zaloog.lazy",
     change_detection = { notify = false }
 })
+
+

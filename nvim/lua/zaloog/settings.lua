@@ -22,3 +22,8 @@ vim.opt.inccommand = "split" -- shows command preview in extra window
 
 vim.opt.splitright = true -- ensures current window stays top left when splitting
 vim.opt.splitbelow = true
+
+vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
