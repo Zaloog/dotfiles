@@ -23,7 +23,17 @@ vim.opt.inccommand = "split" -- shows command preview in extra window
 vim.opt.splitright = true -- ensures current window stays top left when splitting
 vim.opt.splitbelow = true
 
+-- enable Folding
 vim.opt.foldlevelstart = 99
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
+-- save file when leaving insert mode
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.modified and vim.fn.expand("%") ~= "" then
+      vim.cmd("silent! write")
+    end
+  end,
+})
