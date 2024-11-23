@@ -23,6 +23,6 @@ pwsh "$PSScriptRoot\git\setup_git.ps1"
 
 # Run setup_nvim.ps1
 Write-Host "Running setup for Neovim..." -Foregroundcolor Cyan
-pwsh "$PSScriptRoot\nvim\setup_nvim.ps1"
+pwsh Copy-Item -Path "$PSScriptRoot\nvim" -Recurse -Destination "$env:APPDATA\Local" -Force
 
 Write-Host "All setups completed." -Foregroundcolor Green

@@ -3,8 +3,8 @@
 My configurations for 
 - Powershell (pwsh)
 - Windows-Terminal
-- Scoop
-- nvim (still to be automated)
+- scoop + packages
+- neovim
 
 Step1: In Windows Powershell execute:
 ```Powershell
