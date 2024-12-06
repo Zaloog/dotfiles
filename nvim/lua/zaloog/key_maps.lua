@@ -26,6 +26,10 @@ vim.keymap.set("n", "gb", vim.lsp.buf.implementation, {})
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 -- vim.keymap.set("n", "<leader>h", vim.lsp.buf.references, {})
 
+-- Move selected lines with shift+j or shift+k
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Terminal
 -- vim.keymap.set("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>", {})
 -- vim.keymap.set("n", "<leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>", {})
