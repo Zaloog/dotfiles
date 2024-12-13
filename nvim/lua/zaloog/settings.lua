@@ -3,7 +3,7 @@ vim.cmd.colorscheme("kanagawa")
 vim.opt.path = vim.opt.path + '**'
 vim.opt.wildmenu = true -- display matching files when hitting tab
 vim.opt.number = true -- show absolute number in current line
-vim.opt.relativenumber = true -- show relative numbers 
+-- vim.opt.relativenumber = true -- show relative numbers 
 vim.opt.clipboard = "unnamedplus" -- use clipboard for all operations
 vim.opt.syntax = "on" -- syntax highlighting on
 vim.opt.autoindent = true -- automatically indents when going to new line
@@ -33,7 +33,8 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = "*",
   callback = function()
     if vim.bo.modified and vim.fn.expand("%") ~= "" then
-      vim.cmd("silent! write")
+      -- vim.cmd("silent! write")
+      vim.cmd("write")
     end
   end,
 })

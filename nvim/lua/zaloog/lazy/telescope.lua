@@ -5,6 +5,10 @@ return {
     require('telescope').setup({
       defaults ={
         sorting_strategy = "ascending",
+        file_ignore_patterns ={
+                    "__pycache__",
+                    ".venv",
+                },
         layout_config = {
           prompt_position = "top"
         },

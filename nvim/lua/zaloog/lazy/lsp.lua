@@ -24,6 +24,7 @@ return {
         "lua_ls",
         "basedpyright",
         "ruff",
+        "rust_analyzer",
         "cssls",
       },
       automatic_installation = true,
@@ -62,11 +63,16 @@ return {
                 },
               })
           end,
+-- css Setup
         cssls = function()
             require('lspconfig').cssls.setup({
                 capabilities = capabilities,
                 filetypes = { "css", "tcss" }, -- Add support for both css and tcss files
             })
+        end,
+-- rust Setup
+        rust_analyzer = function()
+            require('lspconfig').rust_analyzer.setup({ })
         end,
         }
     })

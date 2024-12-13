@@ -9,6 +9,7 @@ return {
         "lua",
 	    "html",
 	    "python",
+	    "rust",
 	--"vim",
 	--"vimdoc",
 	--"elixir",
