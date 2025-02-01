@@ -1,6 +1,6 @@
 # Path to your Oh My Zsh installation.
-
 export ZSH="$HOME/.config/oh-my-zsh"
+# Other Stuff
 export PYTHON_VENV_NAME=".venv"
 export PYTHON_AUTO_VRUN=true
 export LANG=en_US.UTF-8
@@ -10,6 +10,8 @@ export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 # uv
 export PATH="/Users/zaloog/.local/bin:$PATH"
 export PATH="/Users/zaloog/.cargo/bin:$PATH"
+# ruby
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="amuse"
@@ -100,4 +102,3 @@ alias ga="git add ."
 alias tl="tmux ls"
 
 alias weather="curl -s https://wttr.in/Cologne"
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
