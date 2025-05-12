@@ -4,8 +4,8 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason.nvim",
+    "mason-org/mason-lspconfig.nvim",
     "j-hui/fidget.nvim",
   },
   config = function()
@@ -67,7 +67,7 @@ return {
         cssls = function()
             require('lspconfig').cssls.setup({
                 capabilities = capabilities,
-                filetypes = { "css", "tcss" }, -- Add support for both css and tcss files
+                filetypes = { "css" }, -- Add support for both css and tcss files
             })
         end,
 -- rust Setup
