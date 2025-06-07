@@ -20,7 +20,16 @@ vim.opt.showcmd = true -- show command in last line
 vim.opt.showmatch = true -- show matching brackets
 vim.opt.inccommand = "split" -- shows command preview in extra window
 
-vim.opt.splitright = true -- ensures current window stays top left when splitting
+-- Update open files, when changes occured by external programs e.g. pre-commit
+vim.opt.autoread = true -- automatically detect file changes
+-- Automatically check for file changes when focus is regained or cursor is idle
+vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold", "CursorHoldI"}, {
+    pattern = "*",
+    command = "checktime",
+})
+
+-- ensures current window stays top left when splitting
+vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- enable Folding
