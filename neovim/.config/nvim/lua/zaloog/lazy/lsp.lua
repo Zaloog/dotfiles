@@ -25,7 +25,7 @@ return {
         "basedpyright",
         "ruff",
         "rust_analyzer",
-        "cssls",
+        -- "cssls",
       },
       automatic_installation = true,
       handlers = {
@@ -64,12 +64,12 @@ return {
               })
           end,
 -- css Setup
-        cssls = function()
-            require('lspconfig').cssls.setup({
-                capabilities = capabilities,
-                filetypes = { "css" }, -- Add support for both css and tcss files
-            })
-        end,
+        -- cssls = function()
+        --     require('lspconfig').cssls.setup({
+        --         capabilities = capabilities,
+        --         filetypes = { "css" }, -- Add support for both css and tcss files
+        --     })
+        -- end,
 -- rust Setup
         rust_analyzer = function()
             require('lspconfig').rust_analyzer.setup({ })

@@ -10,6 +10,7 @@ vim.opt.autoindent = true -- automatically indents when going to new line
 vim.opt.expandtab = true -- expands tabstop to 4 spaces
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.textwidth = 80
 vim.opt.encoding = "UTF-8" -- File Encoding
 vim.opt.ruler = true -- shows line:columnnumber of cursor positions
 vim.opt.mouse = "a" -- mouse support for all modes
