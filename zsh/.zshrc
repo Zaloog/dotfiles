@@ -70,6 +70,15 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7BA696,italic"
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
+jira() {
+    if [ -n "$1" ]
+    then
+        pandoc "$1" --from markdown-auto_identifiers --to jira | pbcopy
+        echo "converted $1 to jira format in clipboard"
+    else
+        echo "Please select a markdown file"
+    fi
+}
 # create a named tmux session with `t <NAME>`
 t() {
     if [ -n "$1" ]
