@@ -31,8 +31,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Csv Viewer
-vim.keymap.set("n", "<leader>csv,", "<CMD>CsvViewToggle delimiter=, display_mode=border<CR>")
-vim.keymap.set("n", "<leader>csv;", "<CMD>CsvViewToggle delimiter=; display_mode=border<CR>")
+vim.keymap.set("n", "<leader>csv,", "<CMD>CsvViewToggle delimiter=, display_mode=border header_lnum=1<CR>")
+vim.keymap.set("n", "<leader>csv;", "<CMD>CsvViewToggle delimiter=; display_mode=border header_lnum=1<CR>")
 -- Terminal
 -- vim.keymap.set("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>", {})
 -- vim.keymap.set("n", "<leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>", {})
