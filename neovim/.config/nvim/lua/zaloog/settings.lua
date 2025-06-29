@@ -39,12 +39,12 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- save file when leaving insert mode
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.modified and vim.fn.expand("%") ~= "" then
-      -- vim.cmd("silent! write")
-      vim.cmd("write")
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--   pattern = "*",
+--   callback = function()
+--     if vim.bo.modified and vim.fn.expand("%") ~= "" then
+--       -- vim.cmd("silent! write")
+--       vim.cmd("write")
+--     end
+--   end,
+-- })
