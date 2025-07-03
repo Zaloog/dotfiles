@@ -22,6 +22,7 @@ plugins=(
     git
     python
     virtualenv
+    rust
 )
 
 source $ZSH/oh-my-zsh.sh
