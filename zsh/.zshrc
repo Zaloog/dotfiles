@@ -110,5 +110,7 @@ alias ga="git add ."
 
 # tmux
 alias tl="tmux ls"
+# just
+alias j="just"
 
 alias weather="curl -s https://wttr.in/Cologne"
