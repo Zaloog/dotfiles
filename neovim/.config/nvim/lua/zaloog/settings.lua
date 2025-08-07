@@ -34,6 +34,8 @@ vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold", "CursorHol
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+vim.diagnostic.config({jump = {float = true}})
+
 -- enable Folding
 vim.opt.foldlevelstart = 99
 vim.opt.foldmethod = "expr"
