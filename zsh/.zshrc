@@ -84,7 +84,7 @@ jira() {
 t() {
     if [ -n "$1" ]
     then
-        tmux new -s "$1"
+        tmux new -s "$1" -n "editor"
     else
         tmux new
     fi
