@@ -22,8 +22,11 @@ vim.keymap.set("n", "<leader>q", "<CMD>bd<CR>", {})
 
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-vim.keymap.set("n", "gb", vim.lsp.buf.implementation, {})
+vim.keymap.set("n", "gb", vim.lsp.buf.references, {})
+vim.keymap.set("n", "nn", vim.lsp.buf.rename, {})
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, {})
 -- vim.keymap.set("n", "<leader>h", vim.lsp.buf.references, {})
 
 -- Move selected lines with shift+j or shift+k

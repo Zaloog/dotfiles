@@ -22,7 +22,8 @@ return {
     require('mason-lspconfig').setup({
       ensure_installed = {
         "lua_ls",
-        "basedpyright",
+        -- "ty",
+        -- "basedpyright",
         "ruff",
         "rust_analyzer",
         -- "cssls",
@@ -48,21 +49,29 @@ return {
           })
         end,
 -- Python Setup
-        basedpyright = function()
-              require('lspconfig').basedpyright.setup({
-                capabilities = capabilities,
-                settings = {
-                  basedpyright = {
-                    analysis = {
-                      ignore = { "*" },
-                      typeCheckingMode = "off",
-                      diagnosticMode = "openFilesOnly",
-                      autoImportCompletions = true,
-                    },
-                  },
-                },
-              })
-          end,
+-- ty Setup
+        ty = function()
+            require('lspconfig').ty.setup({
+		settings = {
+			ty= {}
+		}
+	})
+        end,
+        -- basedpyright = function()
+        --       require('lspconfig').basedpyright.setup({
+        --         capabilities = capabilities,
+        --         settings = {
+        --           basedpyright = {
+        --             analysis = {
+        --               ignore = { "*" },
+        --               typeCheckingMode = "off",
+        --               diagnosticMode = "openFilesOnly",
+        --               autoImportCompletions = true,
+        --             },
+        --           },
+        --         },
+        --       })
+        --   end,
 -- css Setup
         -- cssls = function()
         --     require('lspconfig').cssls.setup({
