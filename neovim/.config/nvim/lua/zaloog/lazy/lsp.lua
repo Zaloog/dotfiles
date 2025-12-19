@@ -4,86 +4,69 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "mason-org/mason.nvim",
-    "mason-org/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
     "j-hui/fidget.nvim",
   },
   config = function()
     local cmp_lsp = require("cmp_nvim_lsp")
-    local capabilities = vim.tbl_deep_extend(
-      "force",
-      vim.lsp.protocol.make_client_capabilities(),
-      cmp_lsp.default_capabilities()
-    )
 
-    require("fidget").setup()
+    -- Global capabilities for nvim-cmp (applied to EVERY server)
+    vim.lsp.config("*", {
+      capabilities = vim.tbl_deep_extend(
+        "force",
+        vim.lsp.protocol.make_client_capabilities(),
+        cmp_lsp.default_capabilities()
+      ),
+    })
+
+    -- UI feedback
+    require("fidget").setup({})
+
+    -- Mason
     require("mason").setup()
 
-    require('mason-lspconfig').setup({
+    -- Mason -> LSP bridge (ensures servers are installed)
+    require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
-        -- "ty",
+        "ty",
         -- "basedpyright",
         "ruff",
         "rust_analyzer",
-        -- "cssls",
       },
       automatic_installation = true,
-      handlers = {
-        function(server_name)
--- Lua Setup
-          require('lspconfig')[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
-        lua_ls = function()
-          require('lspconfig').lua_ls.setup({
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                runtime = { version = "LuaJIT" },
-                diagnostics = { globals = { "vim", "love" } },
-                workspace = { library = { vim.env.VIMRUNTIME } },
-              },
-            },
-          })
-        end,
--- Python Setup
--- ty Setup
-        ty = function()
-            require('lspconfig').ty.setup({
-		settings = {
-			ty= {}
-		}
-	})
-        end,
-        -- basedpyright = function()
-        --       require('lspconfig').basedpyright.setup({
-        --         capabilities = capabilities,
-        --         settings = {
-        --           basedpyright = {
-        --             analysis = {
-        --               ignore = { "*" },
-        --               typeCheckingMode = "off",
-        --               diagnosticMode = "openFilesOnly",
-        --               autoImportCompletions = true,
-        --             },
-        --           },
-        --         },
-        --       })
-        --   end,
--- css Setup
-        -- cssls = function()
-        --     require('lspconfig').cssls.setup({
-        --         capabilities = capabilities,
-        --         filetypes = { "css" }, -- Add support for both css and tcss files
-        --     })
-        -- end,
--- rust Setup
-        rust_analyzer = function()
-            require('lspconfig').rust_analyzer.setup({ })
-        end,
-        }
     })
-end
+
+
+    -- Lua
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          runtime = { version = "LuaJIT" },
+          diagnostics = { globals = { "vim", "love" } },
+          workspace = { library = vim.env.VIMRUNTIME },
+          telemetry = { enable = false },
+        },
+      },
+    })
+
+    -- Rust
+    vim.lsp.config("rust_analyzer", {
+      settings = {
+        ["rust-analyzer"] = {
+          checkOnSave = false,
+        },
+      },
+    })
+
+    -- Enable all the servers
+    vim.lsp.enable({
+      "lua_ls",
+      "ty",
+      -- "basedpyright",
+      "ruff",
+      "rust_analyzer",
+    })
+  end,
 }

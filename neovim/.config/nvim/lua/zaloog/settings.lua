@@ -35,6 +35,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.diagnostic.config({jump = {float = true}})
+vim.diagnostic.config({ virtual_text = true })
 
 -- enable Folding
 vim.opt.foldlevelstart = 99
