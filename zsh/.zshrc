@@ -113,4 +113,7 @@ alias tl="tmux ls"
 # just
 alias j="just"
 
+# Kubernetes
+alias kc="kubectl"
+
 alias weather="curl -s https://wttr.in/Cologne"
