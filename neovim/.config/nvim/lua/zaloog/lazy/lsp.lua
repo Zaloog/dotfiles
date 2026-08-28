@@ -55,7 +55,7 @@ return {
     vim.lsp.config("rust_analyzer", {
       settings = {
         ["rust-analyzer"] = {
-          checkOnSave = false,
+          checkOnSave = true,
         },
       },
     })
